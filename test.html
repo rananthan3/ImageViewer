@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <link rel="stylesheet" href="codebase/webix.css" type="text/css">
+	 <script src="codebase/webix_debug.js" type="text/javascript" charset="utf-8"></script>
+       <title>First Page</title>
+   </head>
+   <body>
+       <div id='layout_div' style='height: 800px'>
+       </div>
+       <script type="text/javascript" charset="utf-8">
+
+           webix.ui({
+               container:"layout_div",
+               id:"layout",
+               //height:550,
+               //width:700,
+               rows:[
+                   {view:"toolbar", 
+		   cols:[
+					{ gravity: 4},
+					{ view:"button", type:"iconButton", icon:"envelope", label:"Mail" },
+					{ view:"button", type:"iconButton", icon:"users", label:"Users" },
+					{ view:"button", type:"iconButton", icon:"cog", label:"Cog" }
+				]},
+                   {cols:[
+                       {
+                           view: "list",
+			   width: 200,
+			   template: "#cancer# #stain#",
+			   select: true,
+			   data: [
+				{id:1, cancer:"Leukemia", stain:"H&E"},
+				{id:2, cancer:"Blastoma", stain:"H&E"},
+				{id:3, cancer:"Glioma", stain:"H&E"},
+				{id:4, cancer:"Sarcoma", stain:"H&E"},
+				{id:5, cancer:"Lymphoma", stain: "GMS"},
+				{id:6, cancer:"Carcinoma", stain: "MPO"}
+				],
+			  on: {"onItemClick": function () {alert("item has just been clicked");}}
+                       },
+                       {   
+				id:"image", 
+				template:"<img src=\"pic_mountain.jpg\" alt=\"Mountain View\" style=\"width:1000px;height:800px;\">"
+                       }
+                   ]
+                   }
+               ]
+           }).show();
+
+       </script>
+   </body>
+</html>
+
