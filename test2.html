@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <link rel="stylesheet" href="codebase/webix.css" type="text/css">
+	 <script src="codebase/webix_debug.js" type="text/javascript" charset="utf-8"></script>
+       <title>First Page</title>
+   </head>
+   <body>
+       <div id='layout_div' style='height: 800px'>
+       </div>
+       <script type="text/javascript" charset="utf-8">
+
+webix.ui({
+     container: "layout_div",
+     id: "layout",
+     //height:550,
+     //width:700,
+     rows: [{
+         view: "toolbar",
+         cols: [{
+             gravity: 4
+         }, {
+             view: "button",
+             type: "iconButton",
+             icon: "envelope",
+             label: "Mail"
+         }, {
+             view: "button",
+             type: "iconButton",
+             icon: "users",
+             label: "Users"
+         }, {
+             view: "button",
+             type: "iconButton",
+             icon: "cog",
+             label: "Cog"
+         }]
+     }, {
+         cols: [{
+             id: 'list',
+             view: "list",
+             width: 200,
+             height: 500,
+             template: "#cancer# #stain#",
+             select: true,
+             data: [{
+                 id: 1,
+                 cancer: "Leukemia",
+                 stain: "H&E",
+                 src: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Acute_leukemia-ALL.jpg/300px-Acute_leukemia-ALL.jpg"
+             }, {
+                 id: 2,
+                 cancer: "Blastoma",
+                 stain: "H&E",
+                 src: "http://path.upmc.edu/cases/case687/images/FIG04.jpg"
+             }],
+         }, {
+             id: "image",
+             template: '<img src="#src#" alt="#cancer#" style="width:1000px;height:800px;">'
+         }]
+     }]
+ });
+ $$('image').bind($$('list'));
+ $list = $$('list');
+ $list.select($list.getFirstId());
+
+
+
+       </script>
+   </body>
+</html>
+
