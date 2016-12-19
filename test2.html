@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
    <head>
+	<meta charset="UTF-8">
        <link rel="stylesheet" href="codebase/webix.css" type="text/css">
 	 <script src="codebase/webix_debug.js" type="text/javascript" charset="utf-8"></script>
        <title>First Page</title>
@@ -61,7 +62,9 @@ webix.ui({
      }]
  });
  $$('image').bind($$('list'));
- $list = $$('list');
+ 
+ //This code ensures that the first item is selected on initial page load
+ $list = $$('list'); 
  $list.select($list.getFirstId());
 
 
